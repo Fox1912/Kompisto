@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.video-container {
+    background: linear-gradient(135deg, #6B345E 0%, #703636 100%);
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+video {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-details {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.video-title {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.video-description {
+    text-align: left;
+	margin: auto;
+    font-size: 14px;
+    color: #0;
+}

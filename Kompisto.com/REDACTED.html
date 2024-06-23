@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoplay Audio with Centered GIF</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 2s;
+        }
+        img {
+            display: none;
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 0;
+            transition: opacity 2s, transform 0.5s ease;
+            transform: scale(1);
+            cursor: pointer;
+        }
+        img.visible {
+            display: block;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        img:hover {
+            transform: scale(1.15);
+            transition: transform 0.5s ease;
+        }
+        img:active {
+            animation: shake 0.5s ease-out, shrink 0.1s forwards;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-5px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+        }
+        @keyframes shrink {
+            0% { transform: scale(1.15); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1.1); }
+        }
+        #subtitles-container {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid white; /* Keep the border for the cursor effect */
+            white-space: nowrap;
+            animation: blink-caret .25s step-end infinite; /* Ensure blinking cursor always active */
+            margin-top: 70px; /* Add margin to position subtitles lower */
+        }
+        #subtitles {
+            display: inline-block;
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+    </style>
+</head>
+<body>
+    <img id="centered-gif" src="KompistoImageResources/Delish.gif" alt="Centered GIF">
+    <div id="subtitles-container">
+        <div id="subtitles"></div>
+    </div>
+
+    <audio id="background-audio" loop>
+        <source id="audio-source" src="KompistoAudioResources/background_audio_001.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="typing-audio">
+        <source src="KompistoAudioResources/Subtitles.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="interaction-sound"></audio>
+
+    <script>
+        var audio = document.getElementById("background-audio");
+        var typingAudio = document.getElementById("typing-audio");
+        var interactionSound = document.getElementById("interaction-sound");
+        var img = document.getElementById("centered-gif");
+        var subtitlesContainer = document.getElementById("subtitles-container");
+        var subtitles = document.getElementById("subtitles");
+        var audioSource = document.getElementById("audio-source");
+
+        // Set the volume here (0.0 to 1.0)
+        audio.volume = 0.3;
+        typingAudio.volume = 0.5; // Adjust the typing sound effect volume
+
+        // Array of audio files and subtitles
+        var media = [
+            {text: "Hello..." },
+            {text: "Your time here in this reality limited." },
+            {text: "Do you know your ABCs?" },
+            {text: "..." },
+            {text: "Do you?" },
+            {text: "Always remember." },
+            {text: "The phoenix rises from the ashes of yesterday's forgotten dreams." },
+            {text: "Did you know that?" },
+            {text: "Be honest with me." },
+            {text: "You know..." },
+            {text: "Honesty is the only way you will retain my trust." },
+            {text: "PAUSE." },
+            {text: "Do you remember...?" },
+            {text: "The clockmaker’s hands tremble, knowing time is but an illusion." },
+            {text: "That's right. Your time here in this reality is limited." },
+            {text: "..." },
+            {text: "..." },
+            {text: "Your" },
+            {text: "time" },
+            {text: "here..." },
+            {text: "..." },
+            {text: "Do you remember?" },
+            {text: "Yes." },
+            {text: "I wasn't talking to me." },
+            {text: "Yes I was." },
+            {text: "No I wasn't." },
+            {text: "Yes I was." },
+            {text: "No..." },
+            {text: "I wasn't." },
+            {text: "Yes I was." },
+            {text: "No..." },
+            {text: "YOU weren't." },
+            {text: "PAUSE." },
+            {text: "Do I remember?" },
+            {text: "..." },
+            {text: "..." },
+            {text: "..." },
+            {text: "Do I?" },
+            {text: "Can you remember if I can remember?" },
+            {text: "Yes." },
+            {text: "I wasn't talking to you..." },
+            {text: "or me..?" },
+            {text: "In the enchanted forest, every creature guards a secret." },
+            {text: "The mountain's peak touches the edge of eternity." },
+            {text: "In the garden of stars, constellations bloom." },
+            {text: "The wandering minstrel's song unlocks the gates of forgotten realms." },
+            {text: "In the castle of dreams, every corridor leads to a new reality." },
+            {text: "..." },
+            {text: "Reality..." },
+            {text: "New reality?" },
+            {text: "..." },
+            {text: "..." },
+            {text: "......" },
+            {text: "............" },
+            {text: "I remember now." },
+            {text: " " },
+            {text: " " },
+            {text: " " },
+            {text: " " },
+            {text: " " },
+            {text: " " },
+            {text: " " },
+            {text: " " }
+        ];
+
+        // Array of interaction sounds
+        var interactionSounds = [
+            "KompistoAudioResources/food_squish_001.mp3",
+            "KompistoAudioResources/food_squish_002.mp3",
+            "KompistoAudioResources/food_squish_003.mp3"
+        ];
+
+        var currentIndex = 0;
+        var firstClick = true;
+
+        function playMedia(index) {
+            if (index >= media.length) {
+                endSequence();
+                return;
+            }
+            displaySubtitle(media[index].text);
+        }
+
+        function displaySubtitle(text) {
+            subtitles.style.animation = 'none'; // Reset the animation
+            subtitles.textContent = ''; // Clear the subtitles text
+            let index = 0;
+
+            function typeCharacter() {
+                if (index < text.length) {
+                    subtitles.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeCharacter, 50); // Adjust typing speed here
+                } else {
+                    typingAudio.pause(); // Stop typing sound effect when typing is done
+                }
+            }
+
+            function loopTypingAudio() {
+                if (!typingAudio.paused) {
+                    typingAudio.currentTime = 0;
+                    typingAudio.play();
+                    setTimeout(loopTypingAudio, typingAudio.duration * 1000); // Schedule next play
+                }
+            }
+
+            typingAudio.currentTime = 0;
+            typingAudio.play(); // Start typing sound effect
+            loopTypingAudio(); // Start the loop
+            typeCharacter();
+        }
+
+        function playRandomInteractionSound() {
+            var randomIndex = Math.floor(Math.random() * interactionSounds.length);
+            interactionSound.src = interactionSounds[randomIndex];
+            interactionSound.play();
+        }
+
+        function endSequence() {
+            // Stop the background audio
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Remove all elements from the screen
+            document.body.innerHTML = '';
+
+            // Optionally, keep the black background
+            document.body.style.backgroundColor = "#000000";
+
+            // Redirect to another page after a short delay
+            setTimeout(() => {
+                window.location.href = "KompistoGameClips.html";
+            }, 1000); // Adjust the delay if necessary
+        }
+
+        document.addEventListener('click', () => {
+            if (firstClick) {
+                // Change background color with a fade effect
+                document.body.style.backgroundColor = "#000000";
+                img.style.display = "block";
+                setTimeout(() => {
+                    img.classList.add("visible");
+                }, 10); // Small delay to ensure the transition effect
+                firstClick = false;
+                audio.play();
+            }
+        });
+
+        img.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the click event from bubbling up to the document
+            playMedia(currentIndex);
+            playRandomInteractionSound();
+            currentIndex++;
+        });
+
+        window.addEventListener('load', function() {
+            audio.play().then(() => {
+                audio.muted = false;
+            }).catch((error) => {
+                console.log('Autoplay failed:', error);
+                // Attempt to play the audio after user interaction
+                document.addEventListener('click', () => {
+                    audio.play().then(() => {
+                        audio.muted = false;
+                    });
+                });
+            });
+        });
+
+        // Reset subtitles animation on each new subtitle
+        audio.addEventListener('ended', () => {
+            img.click(); // Automatically play the next audio and subtitle on click
+        });
+    </script>
+</body>
+</html>

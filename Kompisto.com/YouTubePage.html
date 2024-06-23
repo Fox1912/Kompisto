@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube, Twitch, and SoundCloud Channels</title>
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(79, 38, 38), rgb(79, 38, 70));
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5vw;
+            margin: 20px 0; 
+            width: 100%;
+        }
+
+        .nav-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 12vw;
+            height: 5vw;
+            max-width: 150px; 
+            max-height: 60px; 
+            background: linear-gradient(45deg, #6B345E, #703636);
+            border: none;
+            border-radius: 0.5vw;
+            color: white;
+            text-decoration: none;
+            font-size: 1.6em; 
+            transition: background 0.3s;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(45deg, #A04E8D, #C46060);
+        }
+        .channel-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        .channel-card {
+            background: linear-gradient(135deg, #6B345E 0%, #703636 100%);
+            border-radius: 10px;
+            width: 280px;
+            margin: 10px; 
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: filter 0.3s ease;
+        }
+        .channel-card:hover {
+            filter: brightness(1.1);
+        }
+        .channel-card img.profile-picture {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .channel-card img:hover {
+            transform: scale(1.1);
+        }
+        .channel-name {
+            font-size: 18px;
+            margin: 8px 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+        .channel-name a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .channel-name a:hover {
+            color: #ff4d4d;
+            transform: scale(1.1);
+        }
+        .subscribe-count {
+            background-color: #ff0000;
+            border-radius: 20px;
+            color: #fff;
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .subscribe-count:hover {
+            background-color: #ff4d4d;
+            transform: scale(1.1);
+        }
+        .follow-button {
+            background: linear-gradient(45deg, #FF8C00, #FF4500);
+            border-radius: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .follow-button:hover {
+            background: linear-gradient(45deg, #FF4500, #FF8C00);
+            transform: scale(1.1);
+        }
+        .follow-button img {
+            width: 32px;
+            height: 16px;
+            margin-right: 8px; /* Space between logo and text */
+            border-radius: 0; /* Ensure the logo image is not rounded */
+        }
+        .twitch-button {
+            background-color: #9146FF; /* Twitch purple color */
+            border-radius: 5px; /* Less rounded corners */
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 4px 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .twitch-button img {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px; /* Space between logo and text */
+            border-radius: 0; /* Ensure the Twitch logo image is not rounded */
+        }
+
+        .twitch-button span {
+            text-decoration: none; /* No underline for text in twitch-button */
+        }
+
+        .twitch-button:hover {
+            background-color: #772ce8; /* Slightly darker purple on hover */
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+        .latest-video {
+            margin: 8px 0;
+        }
+        .latest-video iframe {
+            border-radius: 10px;
+        }
+        .latest-video img {
+            border-radius: 10px;
+            width: 260px;
+            height: 145px;
+        }
+        .channel-bio {
+            margin: 8px 0;
+            font-size: 14px;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+
+        .description {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 3vw;
+            }
+
+            .nav-button {
+                width: 30vw;
+                height: 12.5vw;
+                font-size: 0.6em; 
+                max-width: 150px;
+                max-height: 60px;
+            }
+        }
+
+        .video-feed-container {
+            width: 100%;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .video-card {
+            display: flex;
+            background: linear-gradient(135deg, #6B345E 0%, #703636 100%);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: filter 0.3s ease;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-card:hover {
+            filter: brightness(1.1);
+        }
+        .video-card iframe {
+			width: 572px;
+			height: 322px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+        .video-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .video-channel-name {
+            font-size: 28px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        .video-description {
+            font-size: 16px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .video-stats {
+            font-size: 12px;
+            color: #ccc;
+        }
+        .upload-date {
+            font-size: 20px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1><img style="width: 658px; height: 219px;" alt="Kompisto Clips" src="KompistoImageResources/YouTubePageLogo.png"></h1>
+    <div class="nav-container">
+        <a href="KompistoHome.html" class="nav-button">Home</a>
+        <a href="KompistoGameClips.html" class="nav-button">Clips</a>
+        <a href="KompistoGameClips.html" class="nav-button">YouTube</a>
+        <a href="KompistoGameClips.html" class="nav-button">About Us</a>
+    </div>
+    <div class="description">
+        <span>Watch Fox, Flaw, Crimsso, Samus, and Lewis in our most retarded moments here.</span><br><br>
+    </div>
+    <div class="channel-cards-container">
+        <!-- SoundCloud Channel Card -->
+        <div class="channel-card">
+            <a href="https://soundcloud.com/lewisisgood" target="_blank">
+                <img src="KompistoImageResources/profile_picture_lewisisgood_soundcloud.jpg" alt="Profile Picture" class="profile-picture">
+            </a>
+            <div class="channel-name">
+                <a href="https://soundcloud.com/lewisisgood" target="_blank">LewisIsGood</a>
+            </div>
+            <a href="https://soundcloud.com/lewisisgood" target="_blank">
+                <div class="follow-button">
+                    <img src="KompistoImageResources/SoundCloudLogo.png" alt="SoundCloud Logo">Follow
+                </div>
+            </a>
+            <div class="latest-video">
+                <iframe width="100%" height="145" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1554183361&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                    <a href="https://soundcloud.com/lewisisgood" title="Lewis" target="_blank" style="color: #cccccc; text-decoration: none;">Lewis</a> · 
+                    <a href="https://soundcloud.com/lewisisgood/baby-daddy" title="Baby Daddy" target="_blank" style="color: #cccccc; text-decoration: none;">Baby Daddy</a>
+                </div>
+            </div>
+            <div class="channel-bio">Lewis</div>
+        </div>
+    </div>
+    <div class="video-feed-container">
+        <!-- Combined YouTube Video Feed here -->
+    </div>
+    <script>
+        const YOUTUBE_API_KEY = 'AIzaSyCCLd5FO4-Jhvb26T0v85taApcH22Hd5sk';
+        const youtubeChannelIds = ['UCKbHbzggsqawKcLvsSJ43_w', 'UCuhTc-4pjBOB4SMq1vjAWoQ', 'UCXHYeIWjU9g56uLc7zvtJHw'];
+
+        function fetchVideosFromChannel(channelId) {
+            return fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=UU${channelId.slice(2)}&key=${YOUTUBE_API_KEY}`)
+                .then(response => response.json())
+                .then(data => data.items);
+        }
+
+        function fetchVideoStats(videoId) {
+            return fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${YOUTUBE_API_KEY}`)
+                .then(response => response.json())
+                .then(data => data.items[0].statistics);
+        }
+
+        function createVideoCard(video) {
+            const videoCard = document.createElement('div');
+            videoCard.classList.add('video-card');
+            fetchVideoStats(video.contentDetails.videoId).then(stats => {
+                videoCard.innerHTML = `
+                    <iframe src="https://www.youtube.com/embed/${video.contentDetails.videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <div class="video-title">${video.snippet.title}</div>
+                        <div class="video-channel-name">${video.snippet.channelTitle}</div>
+                        <div class="upload-date">${new Date(video.snippet.publishedAt).toLocaleDateString()}</div>
+                        <div class="video-description">${video.snippet.description.length > 100 ? video.snippet.description.substring(0, 100) + '...' : video.snippet.description}</div>
+                        <div class="video-stats">${stats.viewCount} views | ${stats.likeCount} likes</div>
+                    </div>
+                `;
+            });
+            return videoCard;
+        }
+
+        Promise.all(youtubeChannelIds.map(fetchVideosFromChannel))
+            .then(results => {
+                const allVideos = results.flat().sort((a, b) => new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt));
+                const videoFeedContainer = document.querySelector('.video-feed-container');
+                allVideos.forEach(video => {
+                    const videoCard = createVideoCard(video);
+                    videoFeedContainer.appendChild(videoCard);
+                });
+            })
+            .catch(error => console.error('Error fetching video data:', error));
+
+        youtubeChannelIds.forEach(channelId => {
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics,contentDetails&id=${channelId}&key=${YOUTUBE_API_KEY}`)
+                .then(response => response.json())
+                .then(data => {
+                    const channel = data.items[0];
+                    const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
+
+                    fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=1&key=${YOUTUBE_API_KEY}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const latestVideo = data.items[0];
+                            const videoId = latestVideo.snippet.resourceId.videoId;
+                            const channelCard = document.createElement('div');
+                            channelCard.classList.add('channel-card');
+                            channelCard.innerHTML = `
+                                <a href="https://www.youtube.com/channel/${channelId}" target="_blank">
+                                    <img src="${channel.snippet.thumbnails.default.url}" alt="Profile Picture" class="profile-picture">
+                                </a>
+                                <div class="channel-name">
+                                    <a href="https://www.youtube.com/channel/${channelId}" target="_blank">${channel.snippet.title}</a>
+                                </div>
+                                <a href="https://www.youtube.com/channel/${channelId}?sub_confirmation=1" target="_blank">
+                                    <div class="subscribe-count">${channel.statistics.subscriberCount} Subscribers</div>
+                                </a>
+                                <div class="latest-video">
+                                    <iframe width="260" height="145" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="channel-bio">${channel.snippet.description}</div>
+                            `;
+                            document.querySelector('.channel-cards-container').appendChild(channelCard);
+                        })
+                        .catch(error => console.error('Error fetching latest video:', error));
+                })
+                .catch(error => console.error('Error fetching channel data:', error));
+        });
+
+        const twitchChannelNames = ['samus8089', 'twitch_channel_name2', 'twitch_channel_name3'];
+
+        twitchChannelNames.forEach(channelName => {
+            fetch(`https://api.twitch.tv/helix/users?login=${channelName}`, {
+                headers: {
+                    'Client-ID': 'hznzzulbkk9mdhagawnxv7pap6kjpj',
+                    'Authorization': `Bearer xigm0v3agfbsuo154btmk4wlk6rikj`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const user = data.data[0];
+                fetch(`https://api.twitch.tv/helix/streams?user_id=${user.id}`, {
+                    headers: {
+                        'Client-ID': 'hznzzulbkk9mdhagawnxv7pap6kjpj',
+                        'Authorization': `Bearer xigm0v3agfbsuo154btmk4wlk6rikj`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const isLive = data.data.length > 0;
+                    const channelCard = document.createElement('div');
+                    channelCard.classList.add('channel-card');
+                    channelCard.innerHTML = `
+                        <a href="https://www.twitch.tv/${channelName}" target="_blank">
+                            <img src="${user.profile_image_url}" alt="Profile Picture" class="profile-picture">
+                        </a>
+                        <div class="channel-name">
+                            <a href="https://www.twitch.tv/${channelName}" target="_blank">${user.display_name}</a>
+                        </div>
+                        <a href="https://www.twitch.tv/${channelName}" target="_blank">
+                            <div class="twitch-button">
+                                <img src="KompistoImageResources/TwitchLogo.png" alt="Twitch Logo">
+                                <span>Follow</span>
+                            </div>
+                        </a>
+                        ${isLive ? `
+                            <div class="latest-video">
+                                <iframe width="260" height="145" src="https://player.twitch.tv/?channel=${channelName}&parent=yourdomain.com" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+                            </div>
+                        ` : `
+                            <div class="latest-video">
+                                <a href="https://www.twitch.tv/${channelName}" target="_blank">
+                                    <img src="KompistoImageResources/SamusOffline.png" alt="Offline Placeholder">
+                                </a>
+                            </div>
+                        `}
+                        <div class="channel-bio">${user.description}</div>
+                    `;
+                    document.querySelector('.channel-cards-container').appendChild(channelCard);
+                })
+                .catch(error => console.error('Error fetching stream data:', error));
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+        });
+    </script>
+</body>
+</html>

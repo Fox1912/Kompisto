@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kompisto Clips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, rgb(79, 38, 38), rgb(79, 38, 70));
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        h1 {
+            font-family: Bahnschrift;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            margin: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5vw;
+            margin: 20px 0; /* Add some margin for spacing */
+        }
+
+        .nav-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 12vw;
+            height: 5vw;
+            max-width: 150px; /* Maximum width for the buttons */
+            max-height: 60px; /* Maximum height for the buttons */
+            background: linear-gradient(45deg, #6B345E, #703636);
+            border: none;
+            border-radius: 0.5vw;
+            color: white;
+            text-decoration: none;
+            font-size: 1.6em; /* Use em for font size to scale with button */
+            transition: background 0.3s;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(45deg, #A04E8D, #C46060);
+        }
+
+        .video-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center align items */
+            gap: 20px;
+            margin: 20px auto; /* Auto margins to center the section */
+            max-width: 1500px; /* Max width to control number of columns */
+            padding: 0 20px; /* Optional: Add padding to align with container edges */
+        }
+
+        .video-container {
+            background: linear-gradient(135deg, #6B345E 0%, #703636 100%);
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(33.33% - 20px); /* Adjust width for three columns with gap */
+            max-width: 100%; /* Ensure containers can expand to full width on smaller screens */
+            text-align: center;
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+
+        video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-details {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .video-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .video-description {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        @media (max-width: 992px) {
+            .video-container {
+                width: calc(50% - 20px); /* Adjust for two columns on smaller screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .video-container {
+                width: 100%; /* Full width for single column on smaller screens */
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 3vw;
+            }
+
+            .nav-button {
+                width: 30vw;
+                height: 12.5vw;
+                font-size: 0.6em; /* Use em for font size to scale with button */
+                max-width: 150px; /* Ensure maximum width on small screens */
+                max-height: 60px; /* Ensure maximum height on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><img style="width: 658px; height: 219px;" alt="" src="KompistoImageResources/ClipsPageLogo.png"></h1>
+    <div class="nav-container">
+        <a href="KompistoHome.html" class="nav-button">Home</a>
+        <a href="KompistoGameClips.html" class="nav-button">Clips</a>
+        <a href="YouTubePage.html" class="nav-button">YouTube</a>
+        <a href="KompistoGameClips.html" class="nav-button">About Us</a>
+    </div>
+    <div style="text-align: center;">
+        <span>Watch Fox, Flaw, Crimsso, Samus, and Lewis in our most retarded moments here.</span><br><br>
+    </div>
+	<div style="text-align: center;">
+        <span>Enjoy our most scuffed moments from different games and times we hung out online, all in one place, cunt.</span><br><br>
+    </div>
+
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips/GTA_Naked_Man_In_Ohio.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Grand Theft Auto V: Naked Man In Ohio</div>
+                <div class="video-description">What the hell goin' on in Ohio???</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips/LC_Bracken_Kills_Fox.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: Bracken Kills Fox</div>
+                <div class="video-description">Bracken brutalizes Fox's neck after running from a bug to scran some food.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips/LC_Samus_Left_Behind.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: Samus Left Behind</div>
+                <div class="video-description">Samus almost made it back to the ship, but instead is left to rot and fucking die on Experimentation.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+    </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips/MC_Dr_Seuss_Tree.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Minecraft: Is That a Tree I see?</div>
+                <div class="video-description">A Dr. Seuss inspired poetry in Minecraft.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips/XD_Crack_House_Glitch.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">XDefiant: Crack House Glitch</div>
+                <div class="video-description">The game fucked up, causing Fox to enter a musical state of shock and trauma from when he used to smoke crack since the age of 16.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\DBD_Saul_Assists_The_Killer.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Dead by Daylight: Crimsso Assists the Killer</div>
+                <div class="video-description">Crimsso assists the killer in brutally murdering Fox after Fox refuses to heal Crimsso for being difficult.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\Puting_pencils_in_my_pee_hole_makes_me_happy.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lewis and Fox put Pencils in their Peeholes.</div>
+                <div class="video-description">Lewis and Fox force an A.I. to write and produce a song about Peeholes.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\Sauls_Mum_burned_Finlays_Neck_LEAK.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Counter-Strike 2: Crimsso's Mum Exposed!</div>
+                <div class="video-description">While playing Counter-Strike, Fox, Flaw and Samus discuss the horrible things Crimsso's mother commited to his friends when they were younger.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\New_slapper_by_tippex.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">New Slapper by Tippex</div>
+                <div class="video-description">Crimsso breaks the news to the Kompisto boys that renound EDM artist Tippex has released a new song.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\fun_with_aircrafts_in_Garrys_Mod_with_Fox_Crimso_and_Flaw (1).mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Garry's Mod: Drones, Copters and Planes.</div>
+                <div class="video-description">Fox, Crimsso and Flaw cause pure fucking chaos and destruction in Gmod with aircrafts.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\Pags_Tour_2K23_My_Fucken_Dick.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">PGA Tour 2K23: My Dick Hurts</div>
+                <div class="video-description">While Crimsso plays PGA Tour 2K23, Fox and Flaw discuss their severe groin pain, and it makes for some comedic timing in Crimsso's Game.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\FOXs_Voice_Messages_to_Lewis.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Fox's important messages to Lewis</div>
+                <div class="video-description">URGNET voice messages to Lewis at 4:09am.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\PITW_Aughhhh.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Phucker in the Woods: Aughhhhh</div>
+                <div class="video-description">Flaw and Lewis read dialouge out loud from the visual novel game.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\GTA_Ray_Gun_Fox_and_LewisisGood.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Grand Theft Auto V: Lewis & Fox get silly!</div>
+                <div class="video-description">Lewis and Fox random funny ahh GTA V clip toying with a raygun and being silly.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\GTA_Watch_out_Lewis_and_Kyle_FOX.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Grand Theft Auto V: Close call by train.</div>
+                <div class="video-description">Professional Gangstas "Lewis" and "Fox" nearly face their fucking death from an incoming train.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\Discord_Pyschosis.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Flaw, Lewis and Fox get jiggy with it.</div>
+                <div class="video-description">watch as these white boys bust it down sexual style.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\LC_Lewis_gets_fucking_destroyed_by_a_turret_with_Fox_and_Flaw.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: Lewis Faces a Turret.</div>
+                <div class="video-description">Lewis gets fucking destroyed by a Turret in Lethal Company.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\LC_Lewis_taunting_monster_gets_Fox_killed.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: Lewis Taunts a Monster and gets us killed.</div>
+                <div class="video-description">Lewis taunts a bug by moaning in a sexual mannor in Lethal Company and gets Fox and himself killed.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\LC_The_Kompisto_boys_experience_Drowning_for_the_first_time.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: The Kompisto Boys Drown</div>
+                <div class="video-description">The Kompisto boys experience drowning for the first time in Lethal Company.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\LC_Crimsso_visits_DR_Burns.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: Crimsso takes a visit to Dr Burns.</div>
+                <div class="video-description">Crimsso has been suffering with OVERSIZED NUTS for a while now, so he takes a visit to Dr Burns (Fox) to get those big ol' balls of his checked out.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\LC_Fox_gets_his_neck_snapped_by_a_bracken.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company: Flaw Captures Fox Getting His Neck Snapped</div>
+                <div class="video-description">Flaw jumps out his skin when he whitnesses Fox get his fucking neck snapped in Lethal Company.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    <div class="video-section">
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\NSFW_Saul_Caught_Lackin.mov" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">🔞NSFW🔞 Crimsso Caught Lackin'</div>
+                <div class="video-description">Crimsso accidentally shows TITS on stream!!</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\LC_VR_Tenticle_Jumpscare_Fox.mov" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Lethal Company VR: Fox Gets Sexually Assulted by Tenticles.</div>
+                <div class="video-description">Fox is Playing Lethal Company in VR with Flaw, when he suddenly gets touched up by some hentai tenticles.</div>
+            </div>
+        </div>
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="KompistoClips\CG_Crimsso_Spectates_Fox.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <div class="video-title">Crab Game: Crimsso Spectates Fox Being Retarded</div>
+                <div class="video-description">A short cut of Fox in Crab Game being an actual goober while Crimsso watches and Laughs.</div>
+            </div>
+        </div>
+        <!-- VIDEO DIVIDER HERE -->
+  </div>
+    </div>
+</body>
+</html>
