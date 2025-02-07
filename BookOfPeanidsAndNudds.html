@@ -51,7 +51,6 @@
             padding-left: 5vw;
         }
 
-        /* Fixed Right-side Excerpt Section for Desktop */
         @media (min-width: 769px) {
             .excerpt-container {
                 position: fixed;
@@ -86,7 +85,6 @@
             transition: color 1s ease-in-out;
         }
 
-        /* Responsive Styles for Mobile */
         @media (max-width: 768px) {
             body {
                 align-items: center;
@@ -140,15 +138,14 @@
             }
         }
 
-        /* Added Keyframes for Color Effects */
         @keyframes rainbow {
-			0% { color: #ffadad; } /* Pastel Red */
-			20% { color: #ffd6a5; } /* Pastel Orange */
-			40% { color: #fdffb6; } /* Pastel Yellow */
-			60% { color: #caffbf; } /* Pastel Green */
-			80% { color: #9bf6ff; } /* Pastel Blue */
-			100% { color: white; }  /* Fades to White */
-		}
+            0% { color: #ffadad; }
+            20% { color: #ffd6a5; }
+            40% { color: #fdffb6; }
+            60% { color: #caffbf; }
+            80% { color: #9bf6ff; }
+            100% { color: white; }
+        }
 
         @keyframes copyHighlight {
             0% { color: yellow; }
@@ -162,8 +159,7 @@
         <h1>The Book of Peanids and Nudds</h1>
     </div>
     <div class="content" id="text-content">
-        <p>
-Nudds exist in a remarkable variety of forms, each with its own distinct characteristics that set them apart. Some Nudds are large, round, and bulbous, their presence impossible to ignore. Others, by contrast, are shriveled and compact, resembling little dried-out raisins. Despite these differences in size and shape, all Nudds share certain fundamental qualities. They hang, they sway, and they exist in pairs, their left and right counterparts forming a natural duality that defines their function. The Nuddsack, which encases and supports them, is equally fascinating. It possesses a unique texture, adorned with countless wrinkles and folds, all of which converge along a central seam. The purpose of this seam has been debated for centuries, with some believing it serves a structural role, while others consider it purely aesthetic.
+        <p>Nudds exist in a remarkable variety of forms, each with its own distinct characteristics that set them apart. Some Nudds are large, round, and bulbous, their presence impossible to ignore. Others, by contrast, are shriveled and compact, resembling little dried-out raisins. Despite these differences in size and shape, all Nudds share certain fundamental qualities. They hang, they sway, and they exist in pairs, their left and right counterparts forming a natural duality that defines their function. The Nuddsack, which encases and supports them, is equally fascinating. It possesses a unique texture, adorned with countless wrinkles and folds, all of which converge along a central seam. The purpose of this seam has been debated for centuries, with some believing it serves a structural role, while others consider it purely aesthetic.
 
 "A man once told me, ‘It’s not the size of the Nudds that matters, but the way they move when the wind catches them.’ He was a poet, or maybe just an old fool. Either way, I listened." — Victor L. Montague
 
@@ -363,23 +359,26 @@ When the Peanids, the Nudds, and the Bung Hole interact as they were intended, t
 
 And so, the study continues. The Nudds, the Peanids, the Pea Hole, and the Bung Hole remain as they have always been—enduring, evolving, yet never revealing their final secrets. Some seek only to understand. Others seek to push the limits. But in the end, all who interact with them come to the same realization: to know them is to respect them.
 
-        </p>
+</p>
     </div>
 
-    <!-- Excerpt Section -->
     <div class="excerpt-container">
         <button class="excerpt-button" onclick="generateExcerpt()">Excerpt</button>
         <p class="excerpt-display" id="excerpt-display" onclick="copyToClipboard()">Click the button for a random excerpt.</p>
     </div>
 
+    <audio id="excerptSelect" src="KompistoAudioResources/excerpt_select.mp3"></audio>
+    <audio id="excerptCopy" src="KompistoAudioResources/excerpt_copy.mp3"></audio>
+
     <script>
         function generateExcerpt() {
+            document.getElementById("excerptSelect").play();
             const textContent = document.getElementById("text-content").innerText;
             let quotes = textContent.match(/"(.*?)"/g) || [];
             let sentences = textContent.match(/[^.!?]+[.!?]/g) || [];
 
             function removeNames(text) {
-                return text.replace(/\s—\s[A-Z][a-z]+\s[A-Z]\.\s[A-Za-z]+/g, '')
+                return text.replace(/\s—\s[A-Z][a-z]+\s[A-Z]\.[A-Za-z]+/g, '')
                            .replace(/\s—\s[A-Z][a-z]+\s[A-Z]\./g, '')
                            .trim();
             }
@@ -398,8 +397,6 @@ And so, the study continues. The Nudds, the Peanids, the Pea Hole, and the Bung 
 
                 const displayElement = document.getElementById("excerpt-display");
                 displayElement.innerText = randomExcerpt;
-                
-                // Reset and trigger animation
                 displayElement.style.animation = "none";
                 void displayElement.offsetWidth;
                 setTimeout(() => {
@@ -411,7 +408,7 @@ And so, the study continues. The Nudds, the Peanids, the Pea Hole, and the Bung 
         function copyToClipboard() {
             const displayElement = document.getElementById("excerpt-display");
             navigator.clipboard.writeText(displayElement.innerText).then(() => {
-                // Reset and trigger animation
+                document.getElementById("excerptCopy").play();
                 displayElement.style.animation = "none";
                 void displayElement.offsetWidth;
                 setTimeout(() => {
