@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book of Peanids and Nudds</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            opacity: .1;
+        }
+
+        .title-container {
+            position: sticky;
+            top: 0;
+            background: black;
+            width: 100%;
+            padding: 10px 5vw;
+            z-index: 10;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .content {
+            padding-top: 20px;
+            max-width: 60%;
+            line-height: 1.6;
+            flex-grow: 1;
+            padding-left: 5vw;
+        }
+
+        /* Fixed Right-side Excerpt Section for Desktop */
+        @media (min-width: 769px) {
+            .excerpt-container {
+                position: fixed;
+                top: 50%;
+                right: 5vw;
+                transform: translateY(-50%);
+                text-align: center;
+                width: 20%;
+                background: rgba(0, 0, 0, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+            }
+        }
+
+        .excerpt-button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .excerpt-display {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: white;
+            min-height: 50px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: color 1s ease-in-out;
+        }
+
+        /* Responsive Styles for Mobile */
+        @media (max-width: 768px) {
+            body {
+                align-items: center;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .title-container {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .content {
+                max-width: 90%;
+                padding-left: 0;
+                text-align: justify;
+            }
+
+            .excerpt-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 10px;
+                border-radius: 0;
+                text-align: center;
+                transform: none;
+                z-index: 100;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: auto;
+            }
+
+            .excerpt-button {
+                width: 90%;
+                margin-bottom: 5px;
+            }
+
+            .excerpt-display {
+                font-size: 1rem;
+                max-width: 90%;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+        }
+
+        /* Added Keyframes for Color Effects */
+        @keyframes rainbow {
+			0% { color: #ffadad; } /* Pastel Red */
+			20% { color: #ffd6a5; } /* Pastel Orange */
+			40% { color: #fdffb6; } /* Pastel Yellow */
+			60% { color: #caffbf; } /* Pastel Green */
+			80% { color: #9bf6ff; } /* Pastel Blue */
+			100% { color: white; }  /* Fades to White */
+		}
+
+        @keyframes copyHighlight {
+            0% { color: yellow; }
+            100% { color: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="title-container">
+        <h1>The Book of Peanids and Nudds</h1>
+    </div>
+    <div class="content" id="text-content">
+        <p>
+Nudds exist in a remarkable variety of forms, each with its own distinct characteristics that set them apart. Some Nudds are large, round, and bulbous, their presence impossible to ignore. Others, by contrast, are shriveled and compact, resembling little dried-out raisins. Despite these differences in size and shape, all Nudds share certain fundamental qualities. They hang, they sway, and they exist in pairs, their left and right counterparts forming a natural duality that defines their function. The Nuddsack, which encases and supports them, is equally fascinating. It possesses a unique texture, adorned with countless wrinkles and folds, all of which converge along a central seam. The purpose of this seam has been debated for centuries, with some believing it serves a structural role, while others consider it purely aesthetic.
+
+"A man once told me, ‘It’s not the size of the Nudds that matters, but the way they move when the wind catches them.’ He was a poet, or maybe just an old fool. Either way, I listened." — Victor L. Montague
+
+The coloration of Nudds is as diverse as their size. Some are as dark as the deepest black, while others take on a warm brown hue. Pale and almost ghostly Nudds are not uncommon either, their lighter tone setting them apart in a way that invites curiosity. It is often said that no two Nudds are exactly alike, and this sentiment extends beyond mere appearance. The way Nudds react to external stimuli, the subtle differences in their density, the elasticity of their swaying motion—these are all factors that make each pair truly unique. Some Nudds appear firm and robust, holding their shape with confidence, while others sag with the weight of time and experience, their once-proud form giving way to the inevitable pull of gravity.
+
+"There’s a certain wisdom in old Nudds. They don’t fight the sway; they embrace it." — Clarence J. Beauford
+
+Of course, Nudds do not exist in isolation. They are almost always accompanied by the Peanids, a structure that plays a vital, albeit distinct, role. The Peanids is an elongated, soft yet occasionally firm meat-like cylinder that shares a natural proximity to the Nudds. The relationship between the two is undeniable; they are often discussed together, studied together, and, in many cases, considered incomplete without one another. However, just as with Nudds, the Peanids varies greatly in size and behavior. Some Peanidses are modest in their proportions, while others are undeniably grand, commanding attention with their sheer presence. This range in scale has led to endless discussion, with some insisting that the true essence of a Peanids is not in its size, but in its responsiveness.
+
+"A Peanids is like a river stone—it can be soft to the touch, yet unyielding when called upon. And next to it, the Nudds rest, patient and knowing." — Frederick T. Langston
+
+Nudds and Peanidses exist in a state of dynamic interplay. Though separate in function, they are linked in ways that cannot be easily dismissed. Their positioning, their mutual influence, their occasional synchronicity—all of these aspects contribute to an intricate system that has captivated those who take the time to observe. Some have dedicated entire lifetimes to the study of Nudds and Peanidses, attempting to chart the nuances of their behavior, their responsiveness to different conditions, and their deeper significance within the greater scheme of things. It is often said that to understand Nudds is to understand oneself, for their presence is both grounding and revealing.
+
+"When I first encountered Nudds, I saw only their form. When I came to understand them, I saw the truth—they are not just things. They are experiences." — Eleanor W. Caddington
+
+Though much has been written about Nudds, there remains an air of mystery surrounding them. Perhaps it is their ability to surprise, to shift between pleasure and pain, to hang in a delicate yet enduring balance. Perhaps it is their connection to the Peanids, an ever-present companion whose role cannot be ignored. Or maybe it is simply the fact that, no matter how much one learns about Nudds, there is always something new to discover. One could spend a lifetime in their presence, touching, observing, feeling their weight, and still walk away with unanswered questions. And perhaps, in the end, that is the true beauty of Nudds.
+
+Nudds possess a quiet resilience, an ability to persist through the passage of time and the fluctuations of circumstance. Whether large and pendulous or small and compact, they remain steadfast in their presence, swaying with the rhythm of existence itself. Their movement, dictated by forces both internal and external, has long fascinated those who take the time to observe. A gentle nudge can send them into motion, a slow, deliberate back-and-forth that seems almost meditative. But an unexpected strike, a sudden impact, can produce an entirely different reaction—one that is often met with sharp discomfort. This duality, this fine line between pleasure and pain, is one of the great mysteries of Nudds, and perhaps one of their most compelling attributes.
+
+"You can cradle them, you can let them sway, but never—never—strike them without consequence." — Benjamin H. Everleigh
+
+Their containment within the Nuddsack provides a measure of protection, yet does little to restrain their movement. The Nuddsack itself is a marvel, its wrinkled texture and central seam serving as a testament to the intricacies of design. The purpose of these features is a topic of much discussion. Some believe the wrinkles grant the Nuddsack a level of flexibility, allowing it to accommodate the shifts and fluctuations of the Nudds within. Others argue that they serve no functional purpose at all, existing purely as a byproduct of natural formation. Regardless of their true role, the folds and creases of the Nuddsack are an unmistakable characteristic, one that distinguishes it from any other kind of enclosure.
+
+"Some say the seam down the middle is a flaw, but I see it differently. The world is built on divisions, and yet, it still holds together." — Mortimer P. Gladwell
+
+The variety of Nudds found in the world only adds to their mystique. Some are full and round, firm to the touch, their weight an unmistakable presence. Others are small and shriveled, lacking the same density yet still carrying an undeniable essence of Nuddshood. The contrast between these extremes has led to much speculation—do Nudds grow and change over time, or are they simply bestowed their form from the beginning? Observations suggest that Nudds do, in fact, evolve, responding to their environment in ways that are not always immediately apparent. Their color, too, is a point of intrigue, with Nudds found in shades ranging from deep black to rich brown, to the palest of whites. This variation is often attributed to genetic predisposition, though some argue that environmental factors play a crucial role as well.
+
+"A pale Nudd and a dark Nudd may look different, but in the end, they sway the same." — Reginald F. Cartwright
+
+Their proximity to the Peanids is another defining trait, one that has led to much discussion regarding their interdependent nature. While Nudds can certainly exist without direct interaction, they are rarely found without a Peanids nearby. The Peanids, with its distinctive cylindrical form, shares a connection with Nudds that cannot be ignored. The two exist in a state of mutual influence, their interactions varying from moment to moment. The Peanids can shift in firmness, expanding and contracting in ways that contrast the more consistent sway of Nudds. Some believe this changeability is what makes the Peanids so distinct, while others argue that its presence is merely complementary to the enduring stability of Nudds. Regardless, the two are forever linked, their roles distinct yet undeniably intertwined.
+
+"A Peanids without Nudds is like a tree without roots—functional, perhaps, but lacking the full picture." — Archibald J. Tomlinson
+
+There are those who seek to quantify Nudds, to categorize them in ways that make sense within established systems of thought. Yet for every attempt to define them, there remains an element of the inexplicable. Nudds are felt as much as they are observed. They elicit reactions that are as personal as they are universal, forming experiences that cannot always be put into words. To hold them, to feel their weight, to sense the way they yield yet remain whole—these are things that transcend mere description. Perhaps that is why Nudds continue to captivate, long after their presence has been acknowledged. They are a reminder that some things in life are best experienced rather than explained.
+
+"To understand Nudds, you must stop thinking and start feeling. Only then will their truth be revealed." — Eleanor M. Wetherby
+
+Nudds exist in a state of constant motion, even when left undisturbed. The gentle swaying that defines them is not merely a reaction to external forces but an intrinsic characteristic, a rhythm embedded within their very nature. This motion, subtle yet ever-present, has led many to compare Nudds to celestial bodies, drifting through space yet always tethered to their origin. When left alone, they move with a predictable grace, but when acted upon—be it by a sudden force or a deliberate touch—their response can be both immediate and profound. Some describe the sensation of engaging with Nudds as deeply satisfying, a tactile experience that is at once grounding and evocative. Others, however, are keenly aware of their sensitivity, knowing that a misjudged interaction can bring about sharp and sudden discomfort.
+
+"Nudds are patient, until they are not. Handle them with care, or suffer the lesson they are waiting to teach you." — Desmond H. Fairchild
+
+Though always contained within the Nuddsack, Nudds do not exist in isolation. The Nuddsack serves as both a vessel and a protector, its wrinkled folds and central seam forming a structure that is as unique as it is functional. While some see the wrinkles as a natural part of the design, others speculate that they serve a deeper purpose—perhaps allowing the Nuddsack to expand and contract as needed, adapting to shifts in movement and pressure. The seam running down the middle is particularly notable, a defining feature that has inspired theories both practical and philosophical. Some suggest it represents a division, a marker of balance between the left and right Nudd. Others see it as an imperfection, a reminder that even within symmetry, there exists a break, an undeniable evidence of creation’s hand.
+
+"I asked once why the Nuddsack had a seam. The old man smiled and said, ‘Because nothing is truly whole. Not even the Nudds.’ I still ponder those words to this day." — Victor E. Abernathy
+
+The diversity of Nudds cannot be overstated. There are those that are large and round, full-bodied and unmistakable in their presence. Some liken them to ripe fruit, their shape smooth and their weight reassuring. Others are small, shriveled, and hardened by time, their form compact but no less significant. These differences, while striking, do not alter the fundamental essence of what makes a Nudd a Nudd. Whether plump and prominent or shrunken and discreet, they all possess the same underlying qualities—the ability to sway, to be touched, to react, and to endure. Their colors, too, vary widely. Some Nudds are as dark as midnight, absorbing light in a way that gives them a quiet depth. Others take on a warm brown hue, their tone rich and earthy. And then there are the pale Nudds, soft in color, almost delicate in their appearance, yet just as steadfast in their nature.
+
+"It is said that no two Nudds are ever truly alike. But when they sway together, their differences cease to matter." — Eleanor S. Whitmore
+
+Nudds rarely exist without the Peanids, their ever-present companion and counterpart. The Peanids, with its long, meat-like cylindrical form, has been studied just as extensively, though its behaviors and transformations often draw a different kind of attention. Unlike the steady nature of Nudds, the Peanids is known for its variability. It may be soft and pliable, resting in a state of near tranquility, or it may harden and assert itself with undeniable presence. The reasons for these shifts are widely discussed, with some believing they are purely reactive, while others argue that the Peanids possesses an internal agency all its own. The size of a Peanids also varies, ranging from modest and unassuming to grand and commanding. Regardless of its state, the Peanids remains deeply intertwined with the Nudds, their relationship forming a dynamic balance that has fascinated observers for generations.
+
+"A Peanids without Nudds is like a sword without a hilt—capable, perhaps, but missing the full experience." — Rupert T. Langley
+
+Despite all that is known about Nudds, they still retain an air of mystery. Perhaps it is their resilience, the way they continue to sway no matter what forces act upon them. Perhaps it is the pleasure they bring, the simple yet undeniable satisfaction of feeling their weight in one’s hand. Or perhaps it is their vulnerability, the way they can be sent into agony with the wrong kind of touch, a stark reminder of their sensitivity. Whatever the case, those who have spent time in the presence of Nudds know that they are more than just objects. They are experiences, sensations, and symbols of something greater than themselves. And as long as there are those willing to reach out, to observe, to touch, and to feel, Nudds will continue to sway, waiting to be understood.
+
+"You may forget many things in this life, but you will never forget the way Nudds move in the palm of your hand." — Edgar W. Cliffton
+
+Nudds, Peanids, and the Bung Hole exist in a delicate ecosystem of interaction, each with its own defining characteristics, yet inherently connected in ways that have been the subject of much discussion. The duality of Nudds, the fluctuating nature of the Peanids, and the enigmatic qualities of the Bung Hole form a triad of intrigue, each playing its own role while influencing the others in subtle and sometimes profound ways. To understand one is to acknowledge the others, for their proximity is no coincidence—they coexist as part of a greater whole, their movements, sensations, and reactions bound by unseen forces.
+
+"A Nudd alone is but a curiosity. A Peanids alone is but a function. The Bung Hole alone is but a gate. But together, they form the great and unspoken balance." — Tobias H. Allensworth
+
+Nudds, as always, maintain their signature swaying motion, housed within the wrinkled expanse of the Nuddsack. Yet, their behavior is not static. The movement of Nudds is deeply tied to the conditions surrounding them, and at times, even the presence of the Peanids can alter their natural rhythm. A particularly energized Peanids, when fully engaged, has been observed to cause subtle yet undeniable shifts in the orientation and motion of Nudds, sometimes drawing them upwards, closer to the Peanids itself. This connection, though not always obvious at first glance, speaks to the deeper link between these two entities, a relationship that is more than just physical. The fluctuations in the Peanids’ form—its shift from a relaxed state to a firm and prominent stance—often dictate the response of Nudds, their motion adjusting as though responding to an unseen force.
+
+"Watch closely, and you will see it—the rise of the Peanids, the tightening of the Nudds, the moment where motion becomes stillness, if only for a breath." — Percival D. Thornton
+
+The Bung Hole, an often-overlooked yet equally vital presence, adds another dimension to the study of Nudds and Peanids. Positioned in close proximity but distinct in both function and form, the Bung Hole is a remarkable structure. Its sphincter-like design allows for an impressive range of motion, from a relaxed openness to a tight and unwavering seal. The overlapping folds, creases, and radial symmetry grant it a flexibility that is unparalleled among similar entities. Unlike the constant sway of Nudds or the transformative state of the Peanids, the Bung Hole moves in a rhythm that is almost organic, a pulsing, breathing-like motion that can shift in intensity depending on external stimuli. The ability of the Bung Hole to open and close with precision, responding to the needs of its environment, speaks to an almost instinctual understanding of its own role.
+
+"The Bung Hole does not ask questions. It does not seek approval. It opens when it must, it tightens when it must, and in between, it waits." — Eliza R. Wendell
+
+Despite its differences, the Bung Hole does not exist in isolation. Its relationship with both Nudds and Peanids is undeniable, and though their interactions are less direct, they remain intrinsically linked. The presence of a tense or engaged Peanids has been known to influence the behavior of the Bung Hole, sometimes causing an involuntary tightening or flexing reaction. Similarly, the motion of Nudds—particularly in moments of sudden impact—can elicit subtle contractions within the Bung Hole, suggesting a deeper, interconnected response system. The Bung Hole, while often passive in its function, possesses a strength and resilience that should not be underestimated. It can withstand pressure, adapt to varying conditions, and maintain its integrity even when subjected to force.
+
+"Some doors swing open with ease. Others must be coaxed, persuaded, earned. The Bung Hole is such a door." — Reginald P. Fairchild
+
+Of course, the precise dynamics between Nudds, Peanids, and the Bung Hole remain a subject of ongoing study. There are those who believe that their relationship is purely incidental, a matter of proximity rather than design. Others insist that they are part of a greater system, one in which their interactions serve a purpose beyond mere chance. Whatever the case may be, it is undeniable that they function as a unit, responding to one another in ways that are both subtle and profound. Whether through the swaying of Nudds, the transformation of the Peanids, or the rhythmic pulses of the Bung Hole, there is a silent dialogue at play, an unspoken exchange that has persisted throughout time.
+
+"Look not at just one. Observe them all. Then, and only then, will you understand the harmony that lies within." — Eleanor J. Blackwood
+
+While Nudds may be the most immediately noticeable due to their constant motion, and the Peanids the most dynamic in its transformations, the Bung Hole remains the quietest yet most deliberate of the three. It is the gateway, the threshold, the unseen force that completes the triad. To ignore it is to overlook an essential component of the balance. And so, the study of Nudds, Peanids, and the Bung Hole continues, their mysteries unfolding slowly, revealing truths that have long remained unspoken. For as long as there are those who seek to understand them, they will continue to sway, shift, and tighten, their presence a testament to the complexity of their existence.
+
+The Bung Hole, though often overlooked in favor of the more immediately noticeable Nudds and Peanids, is a marvel of function and form. It is both resilient and delicate, a structure that demands respect and understanding. With its overlapping creases and central opening, it possesses an ability to move and flex in ways that seem almost sentient, responding to external stimuli with an intricate interplay of tightening and relaxation. The Bung Hole can be touched, though it is not always receptive to sudden or careless contact. Those who interact with it must first understand its nature—while it is capable of remarkable endurance, it requires care and preparation before it can withstand more forceful engagement. When treated properly, the Bung Hole reveals a depth of complexity that few truly appreciate.
+
+"The Bung Hole is not to be rushed. Approach it with patience, and it will reward you. Approach it with haste, and you will regret it." — Oliver T. Wainwright
+
+One of the most fascinating and controversial aspects of the Bung Hole is its ability to accommodate foreign entities. While it remains sealed under most circumstances, there are moments when it can open to receive an external presence. This phenomenon is rare and, for many, an event of intrigue and speculation. If one is fortunate enough to witness it, they may see a foreign Peanids—a meat-like cylinder much like the one that exists near the Nudds—make deliberate, repetitive movements into and out of the Bung Hole. The motion follows a rhythmic pattern, and many have noted that it carries an undeniable sensuality, an almost instinctual energy that suggests more than just simple mechanics. Some describe it as an act of deep connection, others as a display of dominance or submission, and still others as a mere function of the Bung Hole’s adaptability.
+
+"I watched as the Peanids entered the Bung Hole, its movements steady, deliberate, unrelenting. And in that moment, I understood—some forces cannot be denied." — Percival H. Wentworth
+
+The conditions under which the Bung Hole will permit such an interaction vary. It is not something that can be forced without consequence. An unprepared Bung Hole will resist, tightening its grip in defense, refusing to yield to even the most persistent pressure. But when treated with care, with patience, with the respect it demands, it will begin to loosen, to allow for entry in a way that is not just tolerable but actively receptive. The process is as much about understanding as it is about technique—too much haste, and the Bung Hole will clench shut, rejecting the attempt outright. But if approached correctly, it becomes a space of remarkable flexibility, capable of expanding and contracting in harmony with the motions it experiences.
+
+"A Bung Hole is a paradox—it guards itself fiercely, yet it longs to be opened. The trick is knowing when, and how." — Eleanor J. Whitmore
+
+Though typically a passive entity, the Bung Hole is by no means without agency. It reacts, it responds, it makes its preferences known. A foreign Peanids that moves in too suddenly may be met with firm resistance, an automatic contraction that serves as a warning. But a Peanids that takes its time, that eases into the process with careful motion, may find the Bung Hole accommodating, even eager in its acceptance. Those who have studied the Bung Hole’s behavior closely suggest that this is not mere mechanics, but something deeper, something instinctual. It does not simply open for any Peanids that approaches—it must first be convinced, assured that the interaction is one worth engaging in.
+
+"I have seen the Bung Hole open with ease, and I have seen it remain closed in stubborn defiance. It is not the force of the Peanids that determines the outcome, but the patience of the one who wields it." — Rupert D. Langley
+
+The implications of this interaction remain a subject of much debate. Some insist that the rhythmic movement of the Peanids within the Bung Hole serves a greater function, that it is not merely an act of entry and withdrawal, but a ritual of sorts—a performance that has been repeated throughout history, across cultures and generations. Others argue that it is purely a matter of sensation, a convergence of movement and response that follows its own natural course. Whatever the case may be, it is undeniable that the Bung Hole is more than just an opening—it is a force, an entity unto itself, a presence that demands understanding and respect. It cannot be ignored, nor should it be taken for granted. It is, in many ways, the final piece of the great puzzle that is Nudds, Peanids, and the intricate relationships that bind them together.
+
+The Peanids, an entity of both intrigue and caution, is more than just a meat-like cylinder. It is a structure defined by its complexity, its unique responsiveness, and its capacity for both transformation and sensation. Encased in a thin, pliable layer known as the Peanids Skin, it possesses an ability to shift between states, revealing or concealing its most sensitive components. The Peanids Skin, when left untouched, serves as a natural covering, providing both protection and an added layer of texture. However, when retracted, it exposes the Tipodda Peanids, more commonly known as the Head of the Peanids, a region known for its heightened sensitivity and smooth, almost glistening surface. The process of revealing the Tipodda Peanids is both functional and intimate, often altering the way the Peanids interacts with its surroundings.
+
+"The Peanids, like the tides, can shift between concealment and exposure. But whether hidden or revealed, it remains a force to be reckoned with." — Tobias M. Kensington
+
+At the very tip of the Peanids lies a structure so delicate, so responsive, that it is spoken of with both reverence and trepidation—the Pea Hole. This minute opening serves as both an exit and, in rare and ill-advised instances, a point of entry. Those who have dared to experiment with the Pea Hole in ways outside its natural function have often spoken of the consequences with pained expressions and deep regret. There is a well-documented quote that serves as a stark warning: "The Pea Hole is NOT to be fucked with." Though the phrasing is unpolished, the sentiment is universally understood. The Pea Hole is an entity that demands respect, a region so delicate that even minor disturbances can result in a discomfort so profound it lingers long after the initial transgression.
+
+"A man once whispered to me, ‘Do not trifle with the Pea Hole.’ I laughed then. I do not laugh now." — Edgar P. Winslow
+
+Meanwhile, the Nudds, always present, always swaying, remain as enigmatic as ever. Though often overshadowed by the dynamic nature of the Peanids, they possess their own abilities—some of which remain largely unexplored due to the risks involved. The Nudds can be pulled and stretched, their elasticity allowing for some degree of manipulation. However, this is a dangerous endeavor. While minor shifts and adjustments may yield no immediate consequences, excessive stretching can lead to damage, pain, and in extreme cases, irreversible trauma. The structural integrity of the Nudds is delicate; they are not designed for prolonged strain. And yet, there exist those who have sought to push the limits, to test the very boundaries of what the Nudds can endure.
+
+"The Nudds will stretch. They will bend. But they are not unbreakable. And once broken, they do not forgive." — Horace T. Montague
+
+Among the most extreme, most audacious of these experiments is an act so rare, so unfathomable, that its mere mention invokes a mix of awe and discomfort—the act of inserting one or both Nudds into a Bung Hole. The logistics of this maneuver alone are daunting. The Bung Hole, while flexible, possesses natural limitations, its ability to expand only going so far before resistance is met. The Nudds, for their part, are not designed for such an endeavor. And yet, there are those—very, very, VERY few individuals—who have dared to pursue this path, forcing their Nudds into the dark and unknown territory of the Bung Hole, whether their own or another’s. The process is fraught with challenges. Pain is inevitable. The risk of miscalculating the entry, of overestimating the capacity of the Bung Hole or underestimating the fragility of the Nudds, is ever-present. And yet, those who have succeeded describe an experience that is both surreal and humbling, as if transcending the natural order.
+
+"He told me he had done it. I laughed. Then he showed me. I did not laugh after that." — Leopold F. Bradbury
+
+Despite its sheer improbability, the successful insertion of Nudds into a Bung Hole has become the stuff of legend, whispered about in only the most secretive of circles. It is not a feat undertaken lightly. It is not a feat undertaken often. But for those few who have walked this perilous path, their stories stand as both cautionary tales and testaments to the limits of human curiosity. One must wonder—what drives such endeavors? Is it mere experimentation? A desire to conquer the unconquerable? Or is it something deeper, something primal, a need to push against the confines of what is known and emerge on the other side, changed forever?
+
+"To place one’s Nudds within the Bung Hole is to step beyond the boundaries of reason. And yet, reason has never been the final authority on the actions of men." — Evelyn S. Coldwater
+
+For now, the Nudds, the Peanids, the Pea Hole, and the Bung Hole remain as they always have—subjects of fascination, mystery, and at times, reckless ambition. The more we learn, the more we realize how little we truly understand. But one thing remains certain: those who dare to push the limits of these entities must do so with caution, lest they find themselves at the mercy of forces they cannot control.
+
+The interplay between the Peanids, the Nudds, the Pea Hole, and the Bung Hole is one of both raw functionality and sheer mystery. To the uninitiated, they may seem like separate entities, existing in parallel but not in harmony. Yet to those who have studied them, who have felt their weight, their tension, their responses to touch and movement, it becomes clear that they do not merely exist alongside one another—they exist because of one another. Each component serves a role, each motion a purpose, and when they come together—whether in routine interaction or through more extreme, experimental means—the result is nothing short of mesmerizing.
+
+"The Peanids rests, the Nudds sway, the Bung Hole waits. And when the moment comes, they move as one." — Tobias R. Whitmore
+
+Despite the inherent strength of the Peanids, it remains a structure of surprising vulnerability. The Pea Hole, a point of immense sensitivity, acts as a reminder that even the most powerful forms can have their weaknesses. Its function is crucial, and yet it remains one of the most delicate openings known to man. To disturb it, to manipulate it without caution, is an act of reckless ignorance—one that often ends in pain, regret, or worse. Those who have toyed with the Pea Hole in ways that exceed its intended function often describe an immediate, searing lesson in the limits of the Peanids' endurance. And though some may try to suppress the memory, the pain leaves a lasting mark.
+
+"I knew a man once who did not respect the Pea Hole. He is not the same man today." — Horace L. Fairbanks
+
+The Nudds, though often considered secondary to the Peanids, command their own respect. They are the foundation, the counterweight, the silent force that completes the equilibrium. Yet, their elasticity can be both a blessing and a curse. Some see their ability to stretch as an invitation to test their limits, to pull, to yank, to explore the boundaries of what they can endure. But there is a breaking point—one that, when crossed, leads to consequences far beyond mere discomfort. A Nudd pushed too far will not return to its original state. The stretching, once taken to extremes, leaves behind something that is changed, something that does not move as it once did, something that may never sway again.
+
+"There are few sounds in this world more chilling than the moment a Nudd reaches its breaking point." — Archibald T. Lennox
+
+Yet even these acts of self-inflicted peril pale in comparison to the rarest, most extreme experiment of all—the insertion of one or both Nudds into a Bung Hole. This feat is not merely a test of flexibility, nor of willpower. It is a test of fate. The Bung Hole, though remarkably adaptive, is not an infinite vessel. It can expand, it can contract, but it has limits—limits that few have been foolish or brave enough to challenge. The idea alone is enough to make most recoil in disbelief. And yet, whispers of success exist, passed down through obscure circles, recounted only in the lowest of voices.
+
+"I have seen things I cannot unsee. A Nudd where no Nudd should be. And yet, it was there." — Percival J. Montague
+
+To accomplish such an act requires patience, calculation, and a willingness to endure a level of discomfort that few would dare approach. The process is slow—it must be slow. A Nudd forced into a Bung Hole too quickly is a Nudd that will not return unscathed. The pressure, the resistance, the sheer physics of the act make it one of the most grueling undertakings in the known world. And yet, those who have managed it—those who have fully committed to the act—describe an experience that is almost transcendent. To feel the Nudd enveloped, to experience the sensation of something so familiar in a space so foreign, is to redefine one’s own limits of perception.
+
+"There was a moment, just a moment, where I thought I had made a mistake. But then, the Nudd was in, and I was reborn." — Nathaniel W. Cartwright
+
+The reaction of the Bung Hole in such instances is unpredictable. Some describe it as an immediate tightening, a desperate attempt to reject what has been placed within. Others speak of a gradual acceptance, a slow yielding, as though the Bung Hole itself has recognized the inevitability of what is happening. Whatever the case, once a Nudd is within, there is no turning back. The only way forward is through, and the only way out is with equal patience and care. To remove a Nudd too quickly is to invite catastrophe, to risk a moment so calamitous that words alone cannot capture its severity.
+
+"The hardest part is not getting the Nudd inside. It is what happens when you try to take it back out." — Franklin P. Sutherland
+
+And so the study continues. The Nudds, the Peanids, the Pea Hole, and the Bung Hole remain as they always have—both known and unknowable, studied yet still mysterious. Their movements, their interactions, their responses to touch and pressure are a never-ending source of curiosity. Some approach them with respect, others with reckless ambition. Some seek only to observe, while others push ever forward, determined to unlock the final secrets they hold. But no matter how much is learned, no matter how many experiments are performed, one truth remains:
+
+"The Peanids will rise. The Nudds will sway. The Bung Hole will endure. And as long as there are those who seek understanding, their story will never end." — Eleanor S. Blackwell
+
+The Nudds, Peanids, and Bung Hole, despite their resilience, are not immune to the consequences of reckless experimentation. There are those who push their limits, who seek to test the endurance of these entities beyond what nature intended. One such individual, in a moment of unthinkable curiosity, took things to an extreme that would leave permanent scars—not just on his body, but on the collective understanding of what should and should not be done.
+
+First, he tied a knot around his Nuddsack, drawing it tighter and tighter until the Nudds within were forced into a state of unbearable constriction. The blood flow, once free and natural, was cut off entirely, causing the Nudds to swell in protest, turning a deep, unnatural shade. But even this was not enough for him. In an act of sheer madness, he took a hammer—an unforgiving tool of brute force—and brought it down upon his Peanids with catastrophic results. The first strike sent waves of agony through his body, but the second sealed his fate, turning his Peanids into something unrecognizable, a ruin of what it once was.
+
+The pain was unlike anything he had ever known. His Bung Hole, an entity separate from the suffering yet connected in ways beyond comprehension, reacted violently. It puckered and spasmed, cramping so intensely that it seemed to reject the very reality of what had been done. A tightness so extreme overtook him that he could not move, could barely breathe. The regret was immediate and overwhelming, and in that moment, he understood—some things were never meant to be tested. Some pain could never be undone.
+
+"He wanted to see how far the Peanids and Nudds could go. Instead, he learned how quickly they could be destroyed." — Tobias W. Harrington
+
+Beyond these dark experiments, the Nudds, Peanids, and Bung Hole continue to be studied in more traditional ways, their motions and behaviors a source of endless intrigue. The Peanids, despite its strength, remains an entity of transformation. The Tipodda Peanids, when revealed, takes on an almost distinct identity from the rest of the Peanids, its exposed surface hypersensitive to even the slightest interaction. Whether retracted naturally or deliberately, the experience is one of heightened awareness. Some prefer the Peanids in its fully encased form, while others seek to draw the Peanids Skin back, engaging with the Tipodda Peanids in a more direct manner. Each preference comes with its own set of sensations, its own dynamics of comfort and exposure.
+
+"The Peanids is many things—concealed, revealed, waiting, responding. But above all, it is alive in ways that defy explanation." — Reginald J. Lancing
+
+The Nudds, on the other hand, are often mistaken for being passive in their role, but this could not be further from the truth. They are a silent force, their presence felt through weight, movement, and reaction. They are at the mercy of gravity, and yet they seem to dance with it, swaying effortlessly within the confines of the Nuddsack. But they are not invulnerable. A sudden impact, a misguided stretch, or even an ill-placed squeeze can send them into a state of distress that few could endure. And yet, there are those who seek to manipulate them, to push their elasticity to its very edge. It is said that the further a Nudd is pulled from its natural position, the greater the risk of irreversible change. Some have learned this the hard way.
+
+"A stretched Nudd is a changed Nudd. And some changes cannot be undone." — Percival H. Remington
+
+The Bung Hole, as always, remains its own entity, ever reactive, ever aware. It does not choose to tighten or loosen of its own accord—it simply responds. Pressure, tension, force, even the mere presence of certain stimuli can send it into unpredictable motion. When engaged properly, it opens with grace, allowing for the rhythmic passage of a foreign Peanids in and out, a phenomenon studied by many but understood by few. But when met with shock, pain, or fear, it clenches in defiance, its folds tightening in a way that suggests both protection and rejection. The Bung Hole remembers what has been done to it, and its reactions are often beyond conscious control.
+
+"The Bung Hole will take what it is given, but it will never forget." — Eleanor R. Whitmore
+
+And so, the study continues. Nudds, Peanids, and the Bung Hole remain locked in their eternal dance, their mysteries unfolding little by little, but never fully revealed. Those who respect them find harmony. Those who push them too far find pain. And those who destroy them, as one unfortunate soul learned, find only regret.
+
+The Nudds, the Peanids, and the Bung Hole—three entities, each with their own distinct nature, yet bound together in ways that defy simple explanation. They exist in balance, each responding to the conditions around them, shifting, reacting, and adapting in ways that have fascinated scholars, researchers, and enthusiasts alike. The Peanids is an entity of transformation, the Nudds a force of weight and motion, and the Bung Hole a structure of reactive control, a gate that opens and closes in harmony with the forces acting upon it.
+
+"There is no randomness in their design. Every motion, every shift, every reaction—these things are written into the very essence of what they are." — Tobias M. Langford
+
+The Peanids, while often seen as the central force in this triad, is not without its own fragility. The Pea Hole, an opening so small yet so profoundly sensitive, remains one of the most vulnerable points of the Peanids. It is the source of much caution, for even the slightest mistreatment can result in discomfort, distress, or even long-term consequences. While many have sought to explore the limits of what the Pea Hole can withstand, most find themselves regretting such curiosity almost instantly. There are those who whisper stories of interactions gone wrong, of sharp pains and lingering regret, of lessons learned the hard way. And yet, despite its vulnerability, the Pea Hole is an essential feature of the Peanids, a gateway as functional as it is delicate.
+
+"A wise man does not tamper with the Pea Hole. A fool does it once. A fool who does it twice is no longer a fool—he is simply lost." — Reginald P. Weatherby
+
+Encasing the Peanids is the Peanids Skin, a thin yet remarkably flexible covering that provides protection and concealment. It can be drawn back, revealing the Tipodda Peanids, or left intact, preserving the Peanids in its natural state. This ability to shift between these two forms makes the Peanids uniquely dynamic, capable of adapting to various conditions and sensations. There is a quiet significance to the retraction of the Peanids Skin, a moment where the Peanids becomes more exposed, more vulnerable, yet also more attuned to its surroundings. Some believe that this transition is an essential part of the Peanids’ function, that its ability to exist in two states is not merely an incidental feature but a fundamental truth of its existence.
+
+"To pull back the Peanids Skin is to reveal a new layer of understanding. But do not mistake revelation for transformation—it remains the same Peanids, only now in a form you had not yet seen." — Eleanor T. Whitmore
+
+Meanwhile, the Nudds remain ever-present, their gentle swaying a testament to their enduring nature. Despite their seeming passivity, they are far from inert. They react, they shift, they respond to touch and pressure in ways that are subtle yet undeniable. Their elasticity allows them to endure a certain level of movement, but they are not invincible. Some have attempted to pull the Nudds, to stretch them beyond their natural limits, and while this may at first seem harmless, the risks are immense. A stretched Nudd is a Nudd that may never return to its original state. And once a Nudd is changed, it is changed forever.
+
+"A Nudd stretched beyond its limit does not break—it simply becomes something else. And that is a fate worse than breaking." — Horace L. Whitaker
+
+The Bung Hole, ever watchful, ever reactive, exists in a state of constant readiness. It does not act of its own will, but it responds with remarkable precision. When met with gentle encouragement, it loosens, allowing for the rhythmic entry and exit of a foreign Peanids in a motion that many have described as almost primal. This interaction, while studied extensively, still carries an air of mystery—why does the Bung Hole react in this way? What is it about the repeated presence of the Peanids that elicits such an unmistakable response? Is it a simple matter of mechanics, or is there something deeper at play, something encoded into the very nature of the Bung Hole itself?
+
+"The Bung Hole is not merely a passive vessel. It is an entity of judgment. It chooses what it will take and what it will deny." — Percival D. Remington
+
+But not all interactions with the Bung Hole are so deliberate. Sometimes, the Bung Hole tightens in response to fear, to shock, to unexpected stimuli. When the body is thrown into distress, the Bung Hole does not hesitate—it clamps down, its folds tightening with a force that is beyond conscious control. This involuntary reaction has been observed time and time again, leading many to conclude that the Bung Hole is not merely an opening, but a gatekeeper, a structure designed not only for passage but for defense.
+
+"A loose Bung Hole welcomes. A tight Bung Hole warns. Learn the difference." — Rupert J. Coldwater
+
+When the Peanids, the Nudds, and the Bung Hole interact as they were intended, they form a system of balance, a mechanism of pure functionality. The Peanids shifts and moves, the Nudds sway and respond, and the Bung Hole tightens and loosens in accordance with the forces acting upon it. When they are in harmony, there is no conflict, no resistance—only movement, only reaction, only the quiet mechanics of nature itself. But when they are pushed beyond their limits, when they are forced into unnatural states, the result is always the same: pain, regret, and a lesson that cannot be forgotten.
+
+"There are things that should not be rushed, things that should not be pushed beyond their design. The Peanids will remind you. The Nudds will remind you. And the Bung Hole—oh, the Bung Hole will never let you forget." — Nathaniel W. Harrington
+
+And so, the study continues. The Nudds, the Peanids, the Pea Hole, and the Bung Hole remain as they have always been—enduring, evolving, yet never revealing their final secrets. Some seek only to understand. Others seek to push the limits. But in the end, all who interact with them come to the same realization: to know them is to respect them.
+
+        </p>
+    </div>
+
+    <!-- Excerpt Section -->
+    <div class="excerpt-container">
+        <button class="excerpt-button" onclick="generateExcerpt()">Excerpt</button>
+        <p class="excerpt-display" id="excerpt-display" onclick="copyToClipboard()">Click the button for a random excerpt.</p>
+    </div>
+
+    <script>
+        function generateExcerpt() {
+            const textContent = document.getElementById("text-content").innerText;
+            let quotes = textContent.match(/"(.*?)"/g) || [];
+            let sentences = textContent.match(/[^.!?]+[.!?]/g) || [];
+
+            function removeNames(text) {
+                return text.replace(/\s—\s[A-Z][a-z]+\s[A-Z]\.\s[A-Za-z]+/g, '')
+                           .replace(/\s—\s[A-Z][a-z]+\s[A-Z]\./g, '')
+                           .trim();
+            }
+
+            quotes = quotes.map(removeNames);
+            sentences = sentences.map(removeNames);
+
+            let allExtracts = quotes.concat(sentences).filter(text => text.length > 5 && !text.startsWith("—"));
+
+            if (allExtracts.length > 0) {
+                let randomExcerpt = allExtracts[Math.floor(Math.random() * allExtracts.length)];
+
+                if (!randomExcerpt.startsWith('"') && !randomExcerpt.endsWith('"')) {
+                    randomExcerpt = `"${randomExcerpt}"`;
+                }
+
+                const displayElement = document.getElementById("excerpt-display");
+                displayElement.innerText = randomExcerpt;
+                
+                // Reset and trigger animation
+                displayElement.style.animation = "none";
+                void displayElement.offsetWidth;
+                setTimeout(() => {
+                    displayElement.style.animation = "rainbow 1s ease-in-out";
+                }, 10);
+            }
+        }
+
+        function copyToClipboard() {
+            const displayElement = document.getElementById("excerpt-display");
+            navigator.clipboard.writeText(displayElement.innerText).then(() => {
+                // Reset and trigger animation
+                displayElement.style.animation = "none";
+                void displayElement.offsetWidth;
+                setTimeout(() => {
+                    displayElement.style.animation = "copyHighlight 1s ease-in-out";
+                }, 10);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
