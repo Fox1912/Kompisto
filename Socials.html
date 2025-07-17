@@ -301,7 +301,7 @@
     </div>
     <script>
         const YOUTUBE_API_KEY = 'AIzaSyCCLd5FO4-Jhvb26T0v85taApcH22Hd5sk';
-        const youtubeChannelIds = ['UCKbHbzggsqawKcLvsSJ43_w', 'UCuhTc-4pjBOB4SMq1vjAWoQ', 'UCXHYeIWjU9g56uLc7zvtJHw'];
+        const youtubeChannelIds = ['UCKbHbzggsqawKcLvsSJ43_w', 'UCXHYeIWjU9g56uLc7zvtJHw', 'UC_7JailFVnAHJZ2Xht9k9og'];
 
         function fetchVideosFromChannel(channelId) {
             return fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=UU${channelId.slice(2)}&key=${YOUTUBE_API_KEY}`)
