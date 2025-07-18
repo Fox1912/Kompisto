@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kompisto</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">KOMPISTO<span class="dot">.com</span></div>
+
+    <div class="nav-right">
+      <form class="search-form">
+        <input type="text" id="searchInput" placeholder="Search Videos..." />
+      </form>
+
+      <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="Clips.html">CLIPS</a>
+        <a href="#">MUSIC</a>
+        <a href="Videos.html">VIDEOS</a>
+        <a href="#">ABOUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- YouTube Video Feed -->
+    <section class="video-feed-container">
+      <!-- JS will populate videos here -->
+    </section>
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="sound-default" src="KompistoAudioResources/input_key_default.mp3" preload="auto"></audio>
+  <audio id="sound-space" src="KompistoAudioResources/input_key_space.mp3" preload="auto"></audio>
+  <audio id="sound-delete" src="KompistoAudioResources/input_key_delete.mp3" preload="auto"></audio>
+  <audio id="sound-hover" src="KompistoAudioResources/button_hover.mp3" preload="auto"></audio>
+  <audio id="sound-click" src="KompistoAudioResources/button_click.mp3" preload="auto"></audio>
+
+
+  <!-- Scripts -->
+  <script src="KompistoScriptResources/navbar-videos.js"></script>
+  <script src="KompistoScriptResources/youtube-feed.js"></script>
+  
+<!-- Video Modal -->
+<div id="video-modal" class="modal hidden">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-video-container">
+      <iframe id="modal-video-iframe" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="modal-video-info">
+      <h2 id="modal-video-title"></h2>
+      <div class="modal-channel-row">
+        <img id="modal-channel-pfp" class="channel-pfp" src="" alt="Channel Profile Picture" />
+        <a id="modal-channel-link" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+      <p id="modal-video-description"></p>
+      <p id="modal-video-stats"></p>
+    </div>
+    <div class="modal-footer">
+      <button id="modal-youtube-button">Watch On YouTube</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
