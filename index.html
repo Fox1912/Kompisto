@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="icon" type="image/x-icon" href="KompistoImageResources\KompistoFavicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome, cunt.</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            margin: 0;
-        }
-        .loader {
-            border: 8px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 8px solid purple;
-            width: 120px;
-            height: 120px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .text {
-            margin-top: 20px;
-            font-size: 1.5em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kompisto</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="loader"></div>
-    <div class="text">loading, cunt, be patient...</div>
+  <header class="navbar">
+    <div class="logo">KOMPISTO<span class="dot">.com</span></div>
 
-    <script>
-        setTimeout(function() {
-            window.location.href = 'Home';
-        }, 1500);
-    </script>
+    <div class="nav-right">
+      <form class="search-form">
+        <input type="text" id="searchInput" placeholder="Search..." />
+      </form>
+
+      <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="Clips.html">CLIPS</a>
+        <a href="#">MUSIC</a>
+        <a href="Videos.html">VIDEOS</a>
+        <a href="#">ABOUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- Add your page content here -->
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="sound-default" src="KompistoAudioResources/input_key_default.mp3" preload="auto"></audio>
+  <audio id="sound-space" src="KompistoAudioResources/input_key_space.mp3" preload="auto"></audio>
+  <audio id="sound-delete" src="KompistoAudioResources/input_key_delete.mp3" preload="auto"></audio>
+
+  <!-- Key Sound Script -->
+  <script src="KompistoScriptResources/navbar.js"></script>
 </body>
 </html>
